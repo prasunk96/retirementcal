@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Retirement Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton|Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+  </head>
+<body>
+    <div class="container-fluid header-back">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="header-title">RETIREMENT PLANNIG CALCULATOR</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+                <div id="main" class="container">
+                <form id="retirementInputs" name="retirementInputs" action="#">
+                  <div class="form-group">
+                    <label for="currentAge">Current Age<span class="bolded1">  (In Years)</span></label>
+                    <input class="form-control focusedInput" type="text" name="currentAge" id="currentAge" value="15" min="18" max="100" placeholder="Years">
+                  </div>
+                 
+                  <div class="form-group">
+                    <label for="retirementAge">Age of Retirement<span class="bolded1">  (In Years)</span></label>
+                    <input class="form-control focusedInput" type="text" name="retirementAge" id="retirementAge" value="33" min="55" max="100" placeholder="Years">
+                  </div>
+                 
+                  <div class="form-group">
+                    <label for="annualIncome">Anual Income<span class="bolded1">  (USD)</span></label>
+                    <input class="form-control focusedInput" type="text" name="annualIncome" id="annualIncome" value="40000" placeholder="USD">
+                  </div>
+              
+                  <div class="form-group">
+                    <label for="retirementSavings">Contributions to Retirement<span class="bolded1">  (%)</span></label>
+                    <input type="text" class="form-control focusedInput" name="retirementSavings" id="retirementSavings" value="15" placeholder="%">
+                  </div>
+            
+                  <div class="form-group">
+                      <label for="currentRetirement">Current Retirement Savings<span class="bolded1">  (USD)</span></label>
+                    <input class="form-control focusedInput" type="text" name="currentRetirement" id="currentRetirement" value="10000" placeholder="USD">
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="expectedIncrease">Expected Income Increase<span class="bolded1">  (%)</span></label>
+                    <input class="form-control focusedInput" type="text" name="expectedIncrease" id="expectedIncrease" value="4" placeholder="%">
+                  </div>
+              
+                  <div class="form-group">
+                    <label for="incomeRequired">Income Required at Retirement<span class="bolded1">  (%)</span></label>
+                    <input class="form-control focusedInput" type="text" name="incomeRequired" id="incomeRequired" value="80" placeholder="%">
+                  </div>
+            
+                  <div class="form-group">
+                    <label for="rateBefore">Rate of Return Before Retirement<span class="bolded1">  (%)</span></label>
+                    <input class="form-control focusedInput" type="text" name="rateBefore" id="rateBefore" value="9" placeholder="%">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="rateAfter">Rate of Return after Retirement<span class="bolded1">  (%)</span></label>
+                    <input class="form-control focusedInput" type="text" name="rateAfter" id="rateAfter" value="3" placeholder="%">
+                  </div>
+                  <div class="form-group">
+                    <label for="inflation">Expected Rate of Inflation<span class="bolded1">  (%)</span></label>
+                    <input class="form-control focusedInput" type="text" name="inflation" id="inflation" value="1" placeholder="%">
+                  </div>
+                  <div class="form-group">
+                    <h4>Include Social Security?</h4>
+                    <input type="radio" id="includeSS_yes" name="includeSS" value="1" checked>
+                    <label class="radio-inline" for="includeSS_yes" id="label_includeSS_yes">Yes</label>
+                    <input class="radio-inline" type="radio" id="includeSS_no" name="includeSS" value="0">
+                    <label for="includeSS_no" id="label_includeSS_no">No</label>
+                  </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-6">
+        <div id="results" >
+            <canvas id="lineChart" width="650" height="400"></canvas>
+            <div class="well">
+            <p class="lead">You will have <span class="bolded"  id="retirementAmount"></span> at the age of retirement </p>
+            <p class="lead">Your estimated income at retirement will be <span class="bolded"  id="incomeAtRetirement"></span> </p>
+            <p class="lead">Your required income after retirement will be <span class="bolded"  id="incomeAfterRetirement"></span> </p>
+            <p class="lead">Your estimated initial social security income would be <span class="bolded"  id="initialSS"></span> </p>
+            <p class="lead">Retirement savings runs out at age <span class="bolded"  id="retireAge"></span> </p>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="assets/scripts/lodash.js"></script>
+<script src="charts/Chart.js"></script>
+<script src="assets/scripts/retirement.js"></script>
+</html>
